@@ -55,9 +55,10 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
             <ul class="nav navbar-nav">
               <li ng-class="{ active : isCurrentPath('/') }"><a href="#/">Home</a></li>
-              <li ng-class="{ active: isCurrentPath('/about') }"><a ng-href="#/about">About</a></li>
-              <li ng-class="{ active: isCurrentPath('/notes') }"><a ng-href="#/notes">Notes</a></li>
-              <li ng-class="{ active: isCurrentPath('/contact') }"><a ng-href="#/contact">Contact</a></li>
+              <li ng-class="{ active : isCurrentPath('/about') }"><a ng-href="#/about">About</a></li>
+              <li ng-class="{ active : isCurrentPath('/notes') }"><a ng-href="#/notes">Notes</a></li>
+              <li ng-class="{ active : isCurrentPath('/members') }"><a ng-href="#/members">Members</a></li>
+              <li ng-class="{ active : isCurrentPath('/contact') }"><a ng-href="#/contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -110,8 +111,10 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/note.js"></script>
+        <script src="scripts/controllers/member.js"></script>
         <script src="scripts/controllers/navigation.js"></script>
         <script src="scripts/services/NoteService.js"></script>
+        <script src="scripts/services/UserService.js"></script>
         <!-- endbuild -->
 </body>
 </html>

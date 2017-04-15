@@ -1,0 +1,28 @@
+<div class="card-panel">
+    <h4>{{ form.title }}</h4>
+    <form ng-submit="saveUser()">
+        <div class="input-field">
+            <input type="text" ng-model="User.name" placeholder="Name" required>
+        </div>
+        <div class="input-field">
+            <input type="email" ng-model="User.email" placeholder="Email" required>
+        </div>
+        <div class="input-field">
+            <input type="password" ng-model="User.password" placeholder="Password" required>
+        </div>
+        <div class="input-field">
+            <select ng-model="User.type">
+                <option value="" disabled selected>Select an option</option>
+                <option value="admin">Administrator</option>
+                <option value="member">Member</option>
+            </select>
+        </div>
+        <button class="btn waves-effect" type="submit">{{ form.button }}</button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

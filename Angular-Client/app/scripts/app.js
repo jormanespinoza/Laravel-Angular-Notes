@@ -39,18 +39,28 @@ angular
       })
       .when('/notes', {
         templateUrl: 'views/notes/index.html',
-        controller: 'NoteCtrl',
-        controllerAs: 'note'
+        controller: 'NoteCtrl'
       })
       .when('/notes/new', {
         templateUrl: 'views/notes/create.html',
-        controller: 'CreateNoteCtrl',
-        controllerAs: 'createnote'
+        controller: 'CreateNoteCtrl'
+
       })
       .when('/notes/edit/:id', {
         templateUrl: 'views/notes/create.html',
-        controller: 'EditNoteCtrl',
-        controllerAs: 'editnote'
+        controller: 'EditNoteCtrl'
+      })
+      .when('/members', {
+        templateUrl: 'views/members/index.html',
+        controller: 'UserCtrl'
+      })
+      .when('/members/new', {
+        templateUrl: 'views/members/create.html',
+        controller: 'CreateUserCtrl'
+      })
+      .when('/members/edit/:id', {
+        templateUrl: 'views/members/create.html',
+        controller: 'EditUserCtrl'
       })
       .otherwise({
         redirectTo: '/'

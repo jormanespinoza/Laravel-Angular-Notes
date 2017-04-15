@@ -3,9 +3,9 @@
 namespace API\Http\Controllers;
 
 use Illuminate\Http\Request;
-use API\Note;
+use API\User;
 
-class NoteController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class NoteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('cors');
+       $this->middleware('cors');
     }
 
     public function index()
     {
-        $notes = Note::all();
-        return  response()->json($notes->toArray());
+        $users = User::all();
+        return response()->json($users->toArray());
     }
 
     /**
@@ -42,8 +42,12 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        Note::create($request->all());
-        return response()->json(['message' => 'Note has been created successfully'], 200);
+        $user = new User($request->all());
+        $user->password = bcrypt($request->password);
+        $user->remember_token = $request['_token'];
+        $user->save();
+        
+        return response()->json(['message' => 'The user has been created successfully'], 200);
     }
 
     /**
@@ -54,8 +58,8 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        $this->note = Note::find($id);
-        return response()->json($this->note);
+        $user = User::find($id);
+        return response()->json($user);
     }
 
     /**
@@ -78,11 +82,11 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->note = Note::find($id);
-        $this->note->fill($request->all());
-        $this->note->save();
+      $user = User::find($id);
+      $user->fill($request->all());
+      $user->save();
 
-        return response()->json(['message' => 'Note has been updated'], 200 );
+      return response()->json(['message' => 'The user has been updated'], 200 );
     }
 
     /**
@@ -93,9 +97,9 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        $this->note = Note::find($id);
-        $this->note->delete();
+        $user = User::find($id);
+        $user->delete();
 
-        return response()->json(['message' => 'Note deleted'], 200);
+        return response()->json(['message' => 'User deleted'], 200);
     }
 }
