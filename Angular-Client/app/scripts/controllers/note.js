@@ -18,7 +18,7 @@ angular.module('angularClientApp')
       toastr.success('Your note has been deleted')
       $timeout(function() {
         $location.path('/notes');
-      }, 1000)
+      }, 100)
     }
 
   })
@@ -35,7 +35,7 @@ angular.module('angularClientApp')
       $scope.Note = {}
       $timeout(function() {
         $location.path('/notes');
-      }, 1000)
+      }, 100)
     }
   })
   .controller('EditNoteCtrl', function($scope, NoteResource, $routeParams, $location, $timeout) {
@@ -52,6 +52,6 @@ angular.module('angularClientApp')
       toastr.success('Your note has been updated')
       $timeout(function() {
         $location.path('/notes');
-      }, 1000)
+      }, 100)
     }
   });
