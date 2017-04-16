@@ -1,12 +1,15 @@
-<div class="card-panel">
+<div class="row col s10 offset-s1">
+  <br>
+  <div class="card-panel">
     <h4>{{ form.title }}</h4>
     <form ng-submit="saveNote()">
-        <div class="input-field">
-            <input type="text" ng-model="Note.title" required placeholder="Title">
-        </div>
-        <div class="input-field">
-            <textarea class="materialize-textarea" ng-model="Note.description" placeholder="Description" required></textarea>
-        </div>
-        <button class="btn waves-effect" type="submit">{{ form.button }}</button>
+      <div class="input-field">
+        <input type="text" ng-model="Note.title" required placeholder="Title">
+      </div>
+      <div class="input-field">
+        <textarea class="materialize-textarea" ng-model="Note.description" placeholder="Description" required></textarea>
+      </div>
+      <button class="btn waves-effect" type="submit">{{ form.button }}</button>
     </form>
+  </div>
 </div>

@@ -1,25 +1,27 @@
-<div class="input-field">
+<div class="row col s10 offset-s1">
+  <div class="input-field">
     <i class="material-icons prefix">search</i>
     <input type="text" placeholder="Search" ng-model="search">
-</div>
+  </div>
 
-<div class="row">
+  <div class="row">
     <div ng-repeat="Note in Notes | filter:search" class="col s3 m3">
-        <div class="card amber darken-4">
-            <div class="card-content white-text">
-                  <span class="card-title">{{ Note.title }}</span>
-                  <p>{{ Note.description }}</p>
-            </div>
-            <div class="card-action">
-                <a href="#/notes/edit/{{ Note.id }}"><i class="material-icons">edit</i></a>
-                <a href="#" ng-click="removeNote(Note.id)"><i class="material-icons">delete</i></a>
-            </div>
+      <div class="card amber darken-4">
+        <div class="card-content white-text">
+          <span class="card-title">{{ Note.title }}</span>
+          <p>{{ Note.description }}</p>
         </div>
+        <div class="card-action">
+          <a href="#/notes/edit/{{ Note.id }}"><i class="material-icons">edit</i></a>
+          <a href="#" ng-click="removeNote(Note.id)"><i class="material-icons">delete</i></a>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="fixed-action-btn">
+  <div class="btn-floating right btn-large waves-effect waves-light red horizontal">
     <a href="#/notes/new" class="btn-floating btn-large waves-effect waves-light red">
-        <i class="large material-icons">add</i>
+      <i class="large material-icons">add</i>
     </a>
+  </div>
 </div>

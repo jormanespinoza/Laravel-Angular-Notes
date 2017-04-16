@@ -19,7 +19,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('')
     $routeProvider
       .when('/', {
@@ -59,7 +59,7 @@ angular
         controller: 'CreateUserCtrl'
       })
       .when('/members/edit/:id', {
-        templateUrl: 'views/members/create.html',
+        templateUrl: 'views/members/update.html',
         controller: 'EditUserCtrl'
       })
       .otherwise({

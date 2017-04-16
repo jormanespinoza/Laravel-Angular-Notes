@@ -10,11 +10,8 @@
         <input type="email" ng-model="User.email" placeholder="Email" required>
       </div>
       <div class="input-field">
-        <input type="password" ng-model="User.password" placeholder="Password" required>
-      </div>
-      <div class="input-field">
         <select ng-model="User.type">
-        <option value="" disabled selected>Select an option</option>
+        <option value="{{ User.type }}" disabled selected>{{ User.type }}</option>
         <option value="admin">Administrator</option>
         <option value="member">Member</option>
       </select>

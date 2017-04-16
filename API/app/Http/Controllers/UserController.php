@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-       $this->middleware('cors');
+        $this->middleware('cors');
     }
 
     public function index()
@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->remember_token = $request['_token'];
         $user->save();
-        
+
         return response()->json(['message' => 'The user has been created successfully'], 200);
     }
 
