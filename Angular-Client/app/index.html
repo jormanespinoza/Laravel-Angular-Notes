@@ -16,6 +16,7 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/materializeCustom.css">
   <!-- endbuild -->
 </head>
 
@@ -25,6 +26,22 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
+
+  <div class="preloader-background">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-red-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <nav ng-controller="NavigationCtrl as NavCtrl">
     <div class="nav-wrapper">
@@ -112,6 +129,7 @@
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <script src="bower_components/materialize/bin/materialize.js"></script>
   <script src="bower_components/toastr/toastr.js"></script>
+  <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -125,15 +143,9 @@
   <script src="scripts/controllers/navigation.js"></script>
   <script src="scripts/services/NoteService.js"></script>
   <script src="scripts/services/UserService.js"></script>
+  <script src="scripts/js/materializeCustom.js"></script>
   <!-- endbuild -->
-  <script type="text/javascript">
-    $('.button-collapse').sideNav({
-      menuWidth: 280, // Default is 300
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
-    });
-  </script>
+  <!-- Parallax -->
 </body>
 
 </html>

@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="User in Users | filter : search | orderBy : '-id'">
+      <tr dir-paginate="User in Users | orderBy : '-id' | itemsPerPage: 5 | filter : search">
         <td>{{ User.name }}</td>
         <td>{{ User.email }}</td>
         <td>{{ User.type }}</td>
@@ -27,6 +27,7 @@
     </tbody>
   </table>
 
+  <dir-pagination-controls></dir-pagination-controls>
   <br>
 
   <div class="btn-floating right btn-large waves-effect waves-light red horizontal">
