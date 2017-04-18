@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('angularClientApp')
-  .controller('NavigationCtrl', ['$scope', '$location', function($scope, $location) {
+  .controller('NavigationCtrl', function($scope, $location, authUser, sessionControl) {
     $scope.isCurrentPath = function(path) {
       return $location.path() == path;
-    };
-  }]);
+    }
+
+    $scope.logout = function() {
+      authUser.logout()
+    }
+  });

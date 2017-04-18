@@ -44,7 +44,7 @@
     </div>
   </div>
   <!-- Endpreloader -->
-  
+
   <nav ng-controller="NavigationCtrl as NavCtrl">
     <div class="nav-wrapper">
       <a href="#/" class="brand-logo">Angular Client</a>
@@ -55,8 +55,11 @@
         <li ng-class="{ active : isCurrentPath('/notes') }"><a ng-href="#/notes">Notes</a></li>
         <li ng-class="{ active : isCurrentPath('/members') }"><a ng-href="#/members">Members</a></li>
         <li ng-class="{ active : isCurrentPath('/contact') }"><a ng-href="#/contact">Contact</a></li>
+        <li ng-class="{ active : isCurrentPath('/login') }"><a ng-href="#/login">Login/Register</a></li>
+        <li><a ng-click="logout()">Log out</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+        <li ng-class="{ active : isCurrentPath('/login') }"><a ng-href="#/login">Login/Register</a></li>
         <li ng-class="{ active : isCurrentPath('/') }"><a href="#/">Home</a></li>
         <li ng-class="{ active : isCurrentPath('/about') }"><a ng-href="#/about">About</a></li>
         <li ng-class="{ active : isCurrentPath('/notes') }"><a ng-href="#/notes">Notes</a></li>
@@ -129,6 +132,7 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/satellizer/dist/satellizer.js"></script>
   <script src="bower_components/materialize/bin/materialize.js"></script>
   <script src="bower_components/toastr/toastr.js"></script>
   <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
@@ -142,9 +146,11 @@
   <script src="scripts/controllers/contact.js"></script>
   <script src="scripts/controllers/note.js"></script>
   <script src="scripts/controllers/member.js"></script>
+  <script src="scripts/controllers/login.js"></script>
   <script src="scripts/controllers/navigation.js"></script>
   <script src="scripts/services/NoteService.js"></script>
   <script src="scripts/services/UserService.js"></script>
+  <script src="scripts/services/AuthService.js"></script>
   <script src="scripts/js/materializeCustom.js"></script>
   <!-- endbuild -->
   <!-- Parallax -->

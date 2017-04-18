@@ -10,6 +10,7 @@
  */
 angular
   .module('angularClientApp', [
+    'authService',
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -18,10 +19,12 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'satellizer',
     'angularUtils.directives.dirPagination'
   ])
-  .config(function($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider, $authProvider) {
     $locationProvider.hashPrefix('')
+    $authProvider.loginUrl = 'http://localhost:8000/api/authenticate'
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -45,7 +48,6 @@ angular
       .when('/notes/new', {
         templateUrl: 'views/notes/create.html',
         controller: 'CreateNoteCtrl'
-
       })
       .when('/notes/edit/:id', {
         templateUrl: 'views/notes/create.html',
@@ -63,7 +65,22 @@ angular
         templateUrl: 'views/members/update.html',
         controller: 'EditUserCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function($rootScope, $location, authUser) {
+    var privateRoutes = ['/notes', '/members']
+
+    $rootScope.$on('$routeChangeStart', function() {
+      if (($.inArray($location.path(), privateRoutes) !== -1) && !authUser.isLoggedIn()) {
+        toastr.error('You must be logged in')
+        $location.path('/login')
+      }
+    })
   });

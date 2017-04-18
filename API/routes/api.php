@@ -21,4 +21,9 @@ Route::group(['middleware' => 'cors'], function () {
     Route::resource('members', 'UserController');
 });
 
+Route::group(['middleware' => 'cors'], function () {
+    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    Route::post('authenticate', 'AuthenticateController@authenticate');
+});
+
 Route::resource('notes', 'NoteController');

@@ -32,7 +32,7 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \API\Http\Middleware\VerifyCsrfToken::class,
+            // \API\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Barryvdh\Cors\HandleCors::class
         ],
@@ -58,5 +58,7 @@ class Kernel extends HttpKernel
         'guest' => \API\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'cors' => \Barryvdh\Cors\HandleCors::class,
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class
     ];
 }
