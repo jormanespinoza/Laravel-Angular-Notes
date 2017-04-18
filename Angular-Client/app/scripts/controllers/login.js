@@ -12,5 +12,5 @@ angular.module('angularClientApp')
     vm.loginSubmit = function() {
       // console.log(vm.loginForm);
       authUser.loginAPI(vm.loginForm)
-    }
+    };
   });

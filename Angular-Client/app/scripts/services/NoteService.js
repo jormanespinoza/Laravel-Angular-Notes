@@ -8,5 +8,5 @@ angular.module('angularClientApp')
       update: {
         method: 'PUT'
       }
-    })
+    });
   });
