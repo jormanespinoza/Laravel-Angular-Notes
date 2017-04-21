@@ -11,7 +11,6 @@ angular.module('angularClientApp')
     }, function(newVal) {
       if (typeof newVal !== 'undefined') {
         $scope.isLogin = authUser.isLoggedIn();
-        console.log($scope.isLogin);
       }
     });
 

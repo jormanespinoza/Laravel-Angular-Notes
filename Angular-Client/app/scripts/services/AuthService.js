@@ -24,10 +24,11 @@ angular.module('authService', [])
             response.data.user.email,
             response.data.user.name,
             response.data.user.avatar
-          );
-
+          );          
           $location.path('/');
           toastr.success('Session started');
+          location.reload();
+
         },
         function(error) {
           unCacheSession();
@@ -62,7 +63,7 @@ angular.module('authService', [])
         $auth.logout();
         unCacheSession();
         toastr.error('Session closed');
-        $location.path('/');
+        location.reload();
       }
     };
   });

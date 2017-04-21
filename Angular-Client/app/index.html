@@ -46,8 +46,7 @@
   <!-- Endpreloader -->
 
   <!-- Main menu -->
-  <div ng-controller="NavigationCtrl as navigation">
-    {{ navigation.isLogin }}
+  <div ng-controller="NavigationCtrl as navigation">    
     <!-- Dropdown Structure -->
     <ul id="dropdown" class="dropdown-content">
       <li><a ng-click="navigation.logout()">Log out</a></li>
@@ -64,7 +63,7 @@
           <li ng-class="{ active : isCurrentPath('/about') }"><a ng-href="#/about">About</a></li>
           <li ng-class="{ active : isCurrentPath('/notes') }"><a ng-href="#/notes">Notes</a></li>
           <li ng-class="{ active : isCurrentPath('/members') }"><a ng-href="#/members">Members</a></li>
-          <li ng-class="{ active : isCurrentPath('/contact') }"><a ng-href="#/contact">Contact</a></li>        
+          <li ng-class="{ active : isCurrentPath('/contact') }"><a ng-href="#/contact">Contact</a></li>
           <!-- Dropdown Trigger -->
           <li ng-show="{{ navigation.isLogin }}">
             <a class="dropdown-button" href="#/" data-activates="dropdown">{{ navigation.user.name }}<i class="material-icons right">arrow_drop_down</i></a>
