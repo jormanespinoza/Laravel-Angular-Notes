@@ -15,12 +15,11 @@ angular.module('angularClientApp')
       UserResource.delete({
         id: id
       });
-      toastr.success('The user has been deleted')
+      toastr.success('The user has been deleted');
       $timeout(function() {
         $location.path('/members');
-      }, 100)
+      }, 100);
     };
-
   })
   .controller('CreateUserCtrl', function($scope, UserResource, $location, $timeout) {
     $scope.form = {
@@ -30,9 +29,9 @@ angular.module('angularClientApp')
     $scope.User = {};
     $scope.saveUser = function() {
       // console.log($scope.User)
-      UserResource.save($scope.User)
+      UserResource.save($scope.User);
       toastr.success('Your User has been storaged');
-      $scope.User = {}
+      $scope.User = {};
       $timeout(function() {
         $location.path('/members');
       }, 100);
@@ -48,8 +47,8 @@ angular.module('angularClientApp')
     });
     $scope.saveUser = function() {
       // console.log($scope.User)
-      UserResource.update($scope.User)
-      toastr.success('The user has been updated')
+      UserResource.update($scope.User);
+      toastr.success('The user has been updated');
       $timeout(function() {
         $location.path('/members');
       }, 100);

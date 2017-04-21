@@ -42,10 +42,10 @@ angular.module('angularClientApp')
     $scope.form = {
       title: 'Edit Note',
       button: 'Update'
-    }
+    };
     $scope.Note = NoteResource.get({
       id: $routeParams.id
-    })
+    });
     $scope.saveNote = function() {
       // console.log($scope.Note)
       NoteResource.update($scope.Note);

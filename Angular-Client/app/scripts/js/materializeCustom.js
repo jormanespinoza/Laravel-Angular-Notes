@@ -8,6 +8,7 @@ $(document).ready(function() {
     draggable: true // Choose whether you can drag to open on touch screens
   });
   $('select').material_select();
+  $(".dropdown-button").dropdown();
 });
 
 document.addEventListener("DOMContentLoaded", function() {

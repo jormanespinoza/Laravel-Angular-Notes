@@ -23,8 +23,8 @@ angular
     'angularUtils.directives.dirPagination'
   ])
   .config(function($routeProvider, $locationProvider, $authProvider) {
-    $locationProvider.hashPrefix('')
-    $authProvider.loginUrl = 'http://localhost:8000/api/authenticate'
+    $locationProvider.hashPrefix('');
+    $authProvider.loginUrl = 'http://localhost:8000/api/authenticate';
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -75,12 +75,12 @@ angular
       });
   })
   .run(function($rootScope, $location, authUser) {
-    var privateRoutes = ['/notes', '/members']
+    var privateRoutes = ['/notes', '/members'];
 
     $rootScope.$on('$routeChangeStart', function() {
       if (($.inArray($location.path(), privateRoutes) !== -1) && !authUser.isLoggedIn()) {
-        toastr.error('You must be logged in')
-        $location.path('/login')
+        toastr.error('You must be logged in');
+        $location.path('/login');
       }
-    })
+    });
   });

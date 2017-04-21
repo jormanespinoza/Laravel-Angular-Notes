@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('angularClientApp')
   .controller('LoginCtrl', function(authUser) {
@@ -11,6 +11,6 @@ angular.module('angularClientApp')
 
     vm.loginSubmit = function() {
       // console.log(vm.loginForm);
-      authUser.loginAPI(vm.loginForm)
+      authUser.loginAPI(vm.loginForm);
     };
   });

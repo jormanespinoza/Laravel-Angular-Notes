@@ -20,12 +20,11 @@ angular.module('authService', [])
     var login = function(loginForm) {
       $auth.login(loginForm).then(
         function(response) {
-          console.log(response);
           cacheSession(
             response.data.user.email,
             response.data.user.name,
-            loginForm.avatar
-          )
+            response.data.user.avatar
+          );
 
           $location.path('/');
           toastr.success('Session started');
@@ -39,14 +38,14 @@ angular.module('authService', [])
     };
     // Save session data
     var cacheSession = function(email, username, avatar) {
-      sessionControl.set('userIsLoggedIn', true);
+      sessionControl.set('userIsLogin', true);
       sessionControl.set('email', email);
       sessionControl.set('username', username);
       sessionControl.set('avatar', avatar);
     };
     // Remove session data
     var unCacheSession = function() {
-      sessionControl.unset('userIsLoggedIn');
+      sessionControl.unset('userIsLogin');
       sessionControl.unset('email');
       sessionControl.unset('username');
       sessionControl.unset('avatar');
@@ -57,7 +56,7 @@ angular.module('authService', [])
         login(loginForm);
       },
       isLoggedIn: function() {
-        return sessionControl.get('userIsLoggedIn') !== null;
+        return sessionControl.get('userIsLogin') !== null;
       },
       logout: function() {
         $auth.logout();

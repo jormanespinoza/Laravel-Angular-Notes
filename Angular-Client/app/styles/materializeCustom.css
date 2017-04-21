@@ -14,3 +14,7 @@
 .parallax-container {
   margin-bottom: -20px;
 }
+
+.dropdown-content li {
+  min-width: 200px !important;
+}
